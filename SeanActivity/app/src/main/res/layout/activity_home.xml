@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_homelogo"
+    tools:context=".HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/arcadeLogo"
+            android:layout_width="509dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/arcade_logo" />
+
+        <TextView
+            android:id="@+id/userWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/arcadeLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="#c1809a"
+            android:gravity="center"
+            android:text="Welcome User"
+            android:textColor="#ffffff" />
+
+
+
+        <ImageButton
+            android:id="@+id/GuessNumBtnHome"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/userWelcome"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="15dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#ffe4e1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/guessing_num" />
+
+        <TextView
+            android:id="@+id/guessNumberDisc"
+            android:layout_width="247dp"
+            android:layout_height="102dp"
+            android:layout_below="@+id/userWelcome"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:background="#c1809a"
+            android:gravity="center"
+            android:text="As the numbers from 1 to 10 appears on the board you will try to guess it in the fewest number of guesses possible. After every guess, the game will answer if your number is greater or less than their guess."
+            android:textColor="#ffffff" />
+
+
+
+
+
+        <ImageButton
+            android:id="@+id/sevenBoomBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="15dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#ffe4e1"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/guessNumberDisc"
+            android:layout_marginStart="15dp"
+            app:srcCompat="@drawable/boom" />
+
+
+        <TextView
+            android:id="@+id/sevenBoomDisc"
+            android:layout_width="248dp"
+            android:layout_height="107dp"
+            android:layout_below="@+id/guessNumberDisc"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="27dp"
+            android:background="#c1809a"
+            android:gravity="center"
+            android:text="7 Boom is a group word game that teach about division.Players take turns to count incrementally, replacing any number divisible by seven with the word 'Boom'."
+            android:textColor="#ffffff"
+            app:layout_constraintStart_toStartOf="@+id/sevenBoomBtn"
+            tools:layout_editor_absoluteY="451dp" />
+
+
+        <ImageButton
+            android:id="@+id/TicTacToeBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/sevenBoomBtn"
+            android:backgroundTint="#ffe4e1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/tictactoelogo1"
+             />
+
+        <TextView
+            android:id="@+id/ticTacToeDisc"
+            android:layout_width="245dp"
+            android:layout_height="133dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="#c1809a"
+            android:layout_below="@+id/sevenBoomBtn"
+            android:gravity="center"
+            android:text="two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game, with a forced draw assuming best play from both players."
+            android:textColor="#ffffff"
+           />
+
+
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SeanActivity</string>
+    <string name="press">Press</string>
+    <string name="textview">TextView</string>
+    <string name="player_one">Player One</string>
+    <string name="_0">0</string>
+    <string name="player_two">Player Two</string>
+
+    <string name="reset_game">Reset Game</string>
+</resources>
