@@ -14,22 +14,16 @@
         android:id="@+id/menu_refresh"
         app:showAsAction="always" />
 
-    <item android:title="Cart"
-        android:icon="@drawable/ic_cart"
-        android:id="@+id/menu_cart"
-        app:showAsAction="always" />
+
 
     <item android:title="Home"
         android:id="@+id/menu_home"
         android:orderInCategory="1"/>
 
-    <item android:title="Settings"
+    <item android:title="ScoreBoard"
         android:orderInCategory="2"
-        android:id="@+id/menu_settings"/>
-
-    <item android:title="Order Books"
-        android:id="@+id/menu_history_list"
-        android:orderInCategory="3"/>
+        android:id="@+id/menu_score_board"/>
+    
 
     <item android:title="Log out"
         android:orderInCategory="4"

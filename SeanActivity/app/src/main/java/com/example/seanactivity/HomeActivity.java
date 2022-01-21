@@ -39,6 +39,9 @@ public class HomeActivity extends AppCompatActivity {
         ColorDrawable cd = new ColorDrawable(Color.parseColor("#ff00ca"));
         getSupportActionBar().setBackgroundDrawable(cd);
 
+        AdminClass a = AdminClass.getInstance();
+
+
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
@@ -109,14 +112,16 @@ public class HomeActivity extends AppCompatActivity {
             finish();
             overridePendingTransition(0,0);
         }
-        //else if (id == R.id.menu_profile){
-//            Intent intent = new Intent(HomeActivity.this,ProfileActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }else if (id == R.id.menu_settings){
-//            Intent intent = new Intent(HomeActivity.this,SettingsActivity.class);
-//            startActivity(intent);
-//            finish();
+        else if (id == R.id.menu_profile){
+            Intent intent = new Intent(HomeActivity.this,userProfileActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else if (id == R.id.menu_score_board) {
+            Intent intent = new Intent(HomeActivity.this, ScoreBoradListActivity.class);
+            startActivity(intent);
+
+        }
         else if (id == R.id.menu_log_out){
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(HomeActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();

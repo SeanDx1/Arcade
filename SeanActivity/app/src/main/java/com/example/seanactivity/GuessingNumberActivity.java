@@ -1,16 +1,22 @@
 package com.example.seanactivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Random;
 
@@ -132,5 +138,42 @@ public class GuessingNumberActivity extends AppCompatActivity implements View.On
         }else{
             Toast.makeText(GuessingNumberActivity.this,"You Wrong!!!",Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    //--- Menu ToolBar---\\
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.common_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.menu_refresh || id == R.id.menu_home){
+            startActivity(getIntent());
+            finish();
+            overridePendingTransition(0,0);
+        }
+        else if (id == R.id.menu_profile){
+            Intent intent = new Intent(GuessingNumberActivity.this,userProfileActivity.class);
+            startActivity(intent);
+            finish();
+        }
+//        else if (id == R.id.menu_settings){
+//            Intent intent = new Intent(HomeActivity.this,SettingsActivity.class);
+//            startActivity(intent);
+//            finish();
+        else if (id == R.id.menu_log_out){
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(GuessingNumberActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(GuessingNumberActivity.this,LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+            startActivity(intent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

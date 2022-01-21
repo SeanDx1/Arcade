@@ -17,7 +17,7 @@ public class UserClass {
         this.dob = dob;
         this.phone = phone;
         this.gender=gender;
-        scoreBoard = new ScoreBoard();
+
     }
 
     public String getFull_name() {

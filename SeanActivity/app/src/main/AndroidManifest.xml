@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeanActivity">
         <activity
+            android:name=".ScoreBoradListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".userProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".TicTacToeActivity"
             android:exported="false" />
         <activity
@@ -18,9 +25,7 @@
         <activity
             android:name=".GuessingNumberActivity"
             android:exported="false" />
-        <activity
-            android:name=".SevenBoomActivity"
-            android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />

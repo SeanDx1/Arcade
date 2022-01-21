@@ -1,14 +1,20 @@
 package com.example.seanactivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class TicTacToeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -83,6 +89,7 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
 
         if(checkWinner()){
             if(activePlayer){
+
                 playerOneScoreCount++;
                 updatePlayerScore();
                 Toast.makeText(this, "Player One Won!", Toast.LENGTH_SHORT).show();
@@ -150,5 +157,41 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
             gameState[i] = 2;
             buttons[i].setText("");
         }
+    }
+
+    //--- Menu ToolBar---\\
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.common_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.menu_refresh || id == R.id.menu_home){
+            startActivity(getIntent());
+            finish();
+            overridePendingTransition(0,0);
+        }
+        else if (id == R.id.menu_profile){
+            Intent intent = new Intent(TicTacToeActivity.this,userProfileActivity.class);
+            startActivity(intent);
+            finish();
+        }
+//        else if (id == R.id.menu_settings){
+//            Intent intent = new Intent(HomeActivity.this,SettingsActivity.class);
+//            startActivity(intent);
+//            finish();
+        else if (id == R.id.menu_log_out){
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(TicTacToeActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(TicTacToeActivity.this,LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
+            startActivity(intent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
